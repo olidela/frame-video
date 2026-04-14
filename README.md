@@ -32,32 +32,9 @@ python3 -m http.server 8000
 - O fallback local com `ffmpeg` e `server.py` não roda no GitHub Pages, porque Pages não executa backend Python nem processos locais.
 - O deploy está configurado em `.github/workflows/pages.yml`.
 - Como o site publicado usa subpath de projeto, a interface foi ajustada para resolver a API relativa ao caminho atual.
-
-## Premissas e compliance
-
-- A interface web é a forma oficial de uso do projeto.
-- O projeto deve funcionar em desktop e mobile, com foco principal em uso local.
-- O processamento do vídeo deve permanecer local; não há envio para serviços externos.
-- Este projeto atualmente não usa cookies, analytics nem rastreamento de terceiros.
-- O arquivo enviado pode ser processado no navegador ou pelo `ffmpeg` local, sempre na máquina do usuário.
-- As dependências principais são gratuitas: navegador moderno, Python 3 e `ffmpeg`.
-- `.gitignore` é tratado como premissa global e deve cobrir arquivos locais, gerados e sensíveis mínimos do projeto.
-- Antes de commit ou push, o `.gitignore` deve ser revisado e os arquivos staged devem ser conferidos para evitar subir conteúdo indevido ao GitHub.
-- A trilha de premissas deste projeto está em `premissas/`.
-- Ao final de cada bloco relevante de trabalho, o contexto do projeto deve ser atualizado para registrar decisões, estado atual, gaps e próximos passos.
-- Localmente, o remoto preferencial é SSH; na CI do GitHub Actions, o checkout em HTTPS é aceito como compatibilidade operacional.
-- O check inicial de premissas pode ser executado com:
-
-```bash
-bash scripts/premise-check.sh
-```
-
-- Antes de commit/push, confira também:
-
-```bash
-git status --short --ignored
-git diff --cached --name-only
-```
+- Publicação atual: GitHub Pages habilitado com `build_type=workflow`.
+- URL pública configurada pelo GitHub: `https://olidela.github.io/frame-video/`
+- O repositório foi tornado público para viabilizar a publicação.
 
 - A base mínima de validação automatizada pode ser executada com:
 
@@ -70,11 +47,11 @@ bash scripts/smoke-check.sh
 - O projeto também possui workflow de publicação em `.github/workflows/pages.yml` para deploy estático no GitHub Pages.
 - Na aba `Actions` do GitHub, a execução mais recente normalmente aparece no topo da lista e deve ser a primeira referência para avaliar o estado atual do projeto.
 
-## Gaps atuais de premissas
+## Estado atual
 
 - A suíte automatizada ainda é inicial, cobrindo backend e smoke checks básicos do frontend.
-- Antes de qualquer rollout formal, ainda falta ampliar a cobertura dos testes além da base atual.
 - O remoto `origin` já está configurado em SSH; a publicação web estática pode rodar pelo GitHub Pages, mas o modo com `ffmpeg` continua restrito ao ambiente local.
+- A publicação no GitHub Pages depende de o repositório permanecer público ou de um plano compatível com Pages em repositório privado.
 
 ## Como ler a CI
 

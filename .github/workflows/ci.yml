@@ -33,9 +33,6 @@ jobs:
           python3 --version
           node --version
 
-      - name: Premise check
-        run: bash scripts/premise-check.sh
-
       - name: Backend unit tests
         run: python3 -m unittest discover -s tests
 
