@@ -21,5 +21,8 @@ grep -Fq '.file-picker-button' "$ROOT_DIR/styles.css"
 grep -Fq '.preview-grid' "$ROOT_DIR/styles.css"
 echo "[OK] CSS selectors principais"
 
+grep -Fq 'const API_BASE_URL = new URL("./api/", window.location.href);' "$ROOT_DIR/app.js"
+echo "[OK] App compatível com subpath do GitHub Pages"
+
 echo
 echo "Resultado: CONFORME"

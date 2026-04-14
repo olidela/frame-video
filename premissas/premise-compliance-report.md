@@ -52,3 +52,7 @@ Observação operacional:
 10. CI configurada
 - Evidência: `.github/workflows/ci.yml`.
 - Status: Conforme.
+
+11. Publicação estática em GitHub Pages
+- Evidência: `.github/workflows/pages.yml` e app ajustado para API relativa ao caminho atual.
+- Status: Conforme para modo navegador; modo com backend local permanece fora do escopo do Pages.

@@ -75,7 +75,8 @@ Consolidar, em um único documento, as premissas globais reaproveitadas e as pre
 | L12 | Revisão recorrente de `.gitignore` e bloqueio de arquivos ignorados rastreados | `.gitignore`, `scripts/premise-check.sh`, `README.md` | Ativa |
 | L13 | Workflow de CI configurado no GitHub Actions | `.github/workflows/ci.yml` | Ativa |
 | L14 | Leitura da CI orientada pela execução mais recente | `README.md`, `premissas/premise-check-config.md`, `premissas/premissas.md` | Ativa |
-| L15 | Aprofundamento da suíte de testes ainda é pendente | `README.md`, `premissas/rollout-premises.md` | Pendente |
+| L15 | Workflow de deploy estático configurado para GitHub Pages | `.github/workflows/pages.yml` | Ativa |
+| L16 | Aprofundamento da suíte de testes ainda é pendente | `README.md`, `premissas/rollout-premises.md` | Pendente |
 
 ## Regras bloqueantes atuais (com base no estado documentado)
 

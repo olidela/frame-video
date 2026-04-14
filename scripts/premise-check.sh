@@ -71,6 +71,7 @@ check_file "premissas/premise-compliance-report.md" "Relatório de compliance pr
 check_file "premissas/premissas-consolidadas.md" "Premissas consolidadas presentes"
 check_file "premissas/data-relevance-framework.md" "Framework de relevância de dados presente"
 check_file ".github/workflows/ci.yml" "Workflow de CI presente"
+check_file ".github/workflows/pages.yml" "Workflow de deploy do GitHub Pages presente"
 
 if [[ -f "$ROOT_DIR/.gitignore" ]]; then
   check_contains ".gitignore" "__pycache__/" ".gitignore cobre cache Python"

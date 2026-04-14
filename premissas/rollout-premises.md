@@ -24,11 +24,13 @@ Definir regras obrigatórias para promoção segura do projeto a um fluxo versio
 - `python3 -m unittest discover -s tests`
 - `bash scripts/smoke-check.sh`
 - `.github/workflows/ci.yml`
+- `.github/workflows/pages.yml`
 
 3. Segurança e integridade
 - Nenhum segredo versionado no repositório.
 - Sem envio de arquivos do usuário para terceiros.
 - Se houver futura coleta analítica, consentimento deve ser explícito, revogável e auditável.
+- Publicação em GitHub Pages não deve prometer backend remoto inexistente; o modo hospedado deve operar apenas no que o navegador suporta.
 
 4. Fluxo git de promoção
 - A raiz deve ser inicializada em Git.

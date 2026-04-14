@@ -27,6 +27,7 @@ const ZIP_UINT16_MAX = 0xffffn;
 const ZIP_UINT32_MAX = 0xffffffffn;
 const MEDIA_EVENT_TIMEOUT_MS = 12000;
 const LOCAL_API_TIMEOUT_MS = 1500;
+const API_BASE_URL = new URL("./api/", window.location.href);
 
 let currentZipUrl = null;
 let previewUrls = [];
@@ -117,7 +118,7 @@ async function checkLocalApiAvailability() {
   }, LOCAL_API_TIMEOUT_MS);
 
   try {
-    const response = await fetch("/api/health", {
+    const response = await fetch(getApiUrl("health"), {
       cache: "no-store",
       signal: controller.signal,
     });
@@ -395,7 +396,7 @@ async function loadVideoMetadataFromServer(file) {
   const formData = new FormData();
   formData.append("video", file, file.name);
 
-  const response = await fetch("/api/probe", {
+  const response = await fetch(getApiUrl("probe"), {
     method: "POST",
     body: formData,
   });
@@ -429,7 +430,7 @@ async function extractFramesWithServer({ file, prefix, captureConfig, timeRange 
   formData.append("start_time", String(timeRange.start));
   formData.append("end_time", String(timeRange.end));
 
-  const response = await fetch("/api/extract", {
+  const response = await fetch(getApiUrl("extract"), {
     method: "POST",
     body: formData,
   });
@@ -443,6 +444,10 @@ async function extractFramesWithServer({ file, prefix, captureConfig, timeRange 
     fileName: getDownloadFileName(response, `${prefix}-frames.zip`),
     fileCount: getServerFrameCount(response),
   };
+}
+
+function getApiUrl(path) {
+  return new URL(path.replace(/^\/+/, ""), API_BASE_URL).toString();
 }
 
 async function extractPreviewFramesIfPossible({ file, prefix, captureTimes, previewMetadata }) {

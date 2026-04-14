@@ -25,6 +25,14 @@ Se você quiser usar apenas o modo antigo, 100% no navegador, ainda pode subir u
 python3 -m http.server 8000
 ```
 
+## GitHub Pages
+
+- O projeto pode ser publicado no GitHub Pages como interface estática.
+- No GitHub Pages, funciona apenas o modo 100% navegador.
+- O fallback local com `ffmpeg` e `server.py` não roda no GitHub Pages, porque Pages não executa backend Python nem processos locais.
+- O deploy está configurado em `.github/workflows/pages.yml`.
+- Como o site publicado usa subpath de projeto, a interface foi ajustada para resolver a API relativa ao caminho atual.
+
 ## Premissas e compliance
 
 - A interface web é a forma oficial de uso do projeto.
@@ -59,13 +67,14 @@ bash scripts/smoke-check.sh
 ```
 
 - O projeto já possui workflow de CI em `.github/workflows/ci.yml`, executando os checks em `push`, `pull_request` e disparo manual.
+- O projeto também possui workflow de publicação em `.github/workflows/pages.yml` para deploy estático no GitHub Pages.
 - Na aba `Actions` do GitHub, a execução mais recente normalmente aparece no topo da lista e deve ser a primeira referência para avaliar o estado atual do projeto.
 
 ## Gaps atuais de premissas
 
 - A suíte automatizada ainda é inicial, cobrindo backend e smoke checks básicos do frontend.
 - Antes de qualquer rollout formal, ainda falta ampliar a cobertura dos testes além da base atual.
-- O remoto `origin` já está configurado em SSH; o próximo passo de Git passa a ser o push inicial e a estratégia de publicação.
+- O remoto `origin` já está configurado em SSH; a publicação web estática pode rodar pelo GitHub Pages, mas o modo com `ffmpeg` continua restrito ao ambiente local.
 
 ## Como ler a CI
 
