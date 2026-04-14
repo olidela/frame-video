@@ -53,7 +53,8 @@ Consolidar, em um único documento, as premissas globais reaproveitadas e as pre
 42. `.gitignore` deve cobrir, no mínimo, caches locais, arquivos gerados, segredos e artefatos temporários relevantes ao projeto.
 43. A revisão do `.gitignore` deve ser recorrente antes de commit ou push.
 44. Arquivos cobertos pelo `.gitignore` não devem permanecer rastreados no Git.
-45. Ao final de cada bloco relevante, o contexto do projeto deve ser atualizado para preservar continuidade.
+45. O remoto local preferencial deve ser SSH; exceções operacionais de CI podem usar HTTPS quando o provedor impuser esse modo no checkout.
+46. Ao final de cada bloco relevante, o contexto do projeto deve ser atualizado para preservar continuidade.
 
 ## Premissas lançadas/materializadas neste projeto
 

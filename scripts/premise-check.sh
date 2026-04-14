@@ -49,6 +49,8 @@ if git -C "$ROOT_DIR" remote get-url origin >/dev/null 2>&1; then
   ORIGIN_URL="$(git -C "$ROOT_DIR" remote get-url origin)"
   if [[ "$ORIGIN_URL" == git@github.com:* ]]; then
     pass "Remoto origin configurado em SSH"
+  elif [[ "${GITHUB_ACTIONS:-}" == "true" && "$ORIGIN_URL" == https://github.com/* ]]; then
+    pass "Remoto origin configurado em modo compatível com CI"
   else
     fail "Remoto origin configurado em SSH"
   fi

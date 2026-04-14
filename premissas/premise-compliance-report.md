@@ -18,6 +18,9 @@ Data: 2026-04-14
 - Evidência: `origin -> git@github.com:olidela/frame-video.git`.
 - Status: Conforme.
 
+Observação operacional:
+- Em GitHub Actions, `actions/checkout` usa remoto HTTPS durante o job; isso é aceito como compatibilidade de CI e não invalida a premissa local de SSH.
+
 3. `.gitignore` presente e cobrindo artefatos sensíveis/comuns
 - Evidência: arquivo `.gitignore` criado na raiz cobrindo cache Python, arquivos ZIP locais, `.env`, `.codex` e backup do Git embutido em `premissas/`.
 - Status: Conforme.

@@ -28,6 +28,7 @@
 - `.gitignore` deve cobrir artefatos locais, arquivos gerados e arquivos sensíveis mínimos do ambiente.
 - A revisão do `.gitignore` é recorrente e deve acontecer antes de commit ou push.
 - Nenhum arquivo coberto pelo `.gitignore` deve permanecer rastreado no Git.
+- Localmente, o remoto `origin` deve permanecer em SSH; em GitHub Actions, checkout HTTPS é permitido para a execução da CI.
 - O check inicial de premissas ocorre via `bash scripts/premise-check.sh`.
 - O projeto deve manter workflow de CI alinhado com os checks locais.
 - Enquanto a suíte automatizada seguir inicial, não existe promoção formal para `main`.

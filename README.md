@@ -37,6 +37,7 @@ python3 -m http.server 8000
 - Antes de commit ou push, o `.gitignore` deve ser revisado e os arquivos staged devem ser conferidos para evitar subir conteúdo indevido ao GitHub.
 - A trilha de premissas deste projeto está em `premissas/`.
 - Ao final de cada bloco relevante de trabalho, o contexto do projeto deve ser atualizado para registrar decisões, estado atual, gaps e próximos passos.
+- Localmente, o remoto preferencial é SSH; na CI do GitHub Actions, o checkout em HTTPS é aceito como compatibilidade operacional.
 - O check inicial de premissas pode ser executado com:
 
 ```bash
