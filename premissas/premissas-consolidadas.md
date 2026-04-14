@@ -54,7 +54,8 @@ Consolidar, em um único documento, as premissas globais reaproveitadas e as pre
 43. A revisão do `.gitignore` deve ser recorrente antes de commit ou push.
 44. Arquivos cobertos pelo `.gitignore` não devem permanecer rastreados no Git.
 45. O remoto local preferencial deve ser SSH; exceções operacionais de CI podem usar HTTPS quando o provedor impuser esse modo no checkout.
-46. Ao final de cada bloco relevante, o contexto do projeto deve ser atualizado para preservar continuidade.
+46. O estado atual da CI deve ser interpretado a partir da execução mais recente, normalmente exibida no topo da lista de `Actions`.
+47. Ao final de cada bloco relevante, o contexto do projeto deve ser atualizado para preservar continuidade.
 
 ## Premissas lançadas/materializadas neste projeto
 
@@ -73,7 +74,8 @@ Consolidar, em um único documento, as premissas globais reaproveitadas e as pre
 | L11 | Remoto `origin` configurado em SSH | `.git/config`, `scripts/premise-check.sh` | Ativa |
 | L12 | Revisão recorrente de `.gitignore` e bloqueio de arquivos ignorados rastreados | `.gitignore`, `scripts/premise-check.sh`, `README.md` | Ativa |
 | L13 | Workflow de CI configurado no GitHub Actions | `.github/workflows/ci.yml` | Ativa |
-| L14 | Aprofundamento da suíte de testes ainda é pendente | `README.md`, `premissas/rollout-premises.md` | Pendente |
+| L14 | Leitura da CI orientada pela execução mais recente | `README.md`, `premissas/premise-check-config.md`, `premissas/premissas.md` | Ativa |
+| L15 | Aprofundamento da suíte de testes ainda é pendente | `README.md`, `premissas/rollout-premises.md` | Pendente |
 
 ## Regras bloqueantes atuais (com base no estado documentado)
 

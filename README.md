@@ -59,12 +59,20 @@ bash scripts/smoke-check.sh
 ```
 
 - O projeto já possui workflow de CI em `.github/workflows/ci.yml`, executando os checks em `push`, `pull_request` e disparo manual.
+- Na aba `Actions` do GitHub, a execução mais recente normalmente aparece no topo da lista e deve ser a primeira referência para avaliar o estado atual do projeto.
 
 ## Gaps atuais de premissas
 
 - A suíte automatizada ainda é inicial, cobrindo backend e smoke checks básicos do frontend.
 - Antes de qualquer rollout formal, ainda falta ampliar a cobertura dos testes além da base atual.
 - O remoto `origin` já está configurado em SSH; o próximo passo de Git passa a ser o push inicial e a estratégia de publicação.
+
+## Como ler a CI
+
+- Na aba `Actions`, a execução mais recente normalmente aparece no início da lista.
+- A primeira verificação deve ser sempre a run mais recente do branch/commit relevante.
+- Run antiga com `failure` e run mais recente com `success` indica problema histórico já resolvido.
+- Antes de release, a referência correta é a run mais recente do commit que será promovido.
 
 ## Como funciona
 

@@ -48,3 +48,10 @@
 - Status: ativa.
 - Responsável: projeto.
 - Revisão: pendente de cadência formal.
+
+## P8. Leitura da CI orientada pela execução mais recente
+- Contexto: o histórico do GitHub Actions pode mostrar falhas já corrigidas junto de execuções atuais bem-sucedidas.
+- Descrição: a interpretação do estado atual do projeto deve partir da execução mais recente da CI, normalmente exibida no topo da lista; execuções antigas servem como histórico, não como diagnóstico atual isolado.
+- Status: ativa.
+- Responsável: projeto.
+- Revisão: pendente de cadência formal.

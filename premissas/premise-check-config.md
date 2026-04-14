@@ -31,6 +31,7 @@
 - Localmente, o remoto `origin` deve permanecer em SSH; em GitHub Actions, checkout HTTPS é permitido para a execução da CI.
 - O check inicial de premissas ocorre via `bash scripts/premise-check.sh`.
 - O projeto deve manter workflow de CI alinhado com os checks locais.
+- A leitura operacional da CI deve partir da execução mais recente, normalmente exibida no topo da lista em `Actions`.
 - Enquanto a suíte automatizada seguir inicial, não existe promoção formal para `main`.
 - Ao final de cada bloco relevante de trabalho, o contexto deve ser atualizado na documentação do projeto para evitar perda de continuidade.
 
