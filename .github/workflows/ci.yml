@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Show tool versions
+        run: |
+          python3 --version
+          node --version
+
+      - name: Premise check
+        run: bash scripts/premise-check.sh
+
+      - name: Backend unit tests
+        run: python3 -m unittest discover -s tests
+
+      - name: Frontend smoke check
+        run: bash scripts/smoke-check.sh

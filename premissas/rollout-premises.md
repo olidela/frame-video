@@ -19,10 +19,11 @@ Definir regras obrigatórias para promoção segura do projeto a um fluxo versio
 2. Qualidade e testes
 - Deve existir ao menos validação automatizada básica para `server.py` e `app.js`.
 - Mudanças futuras mais sensíveis devem trazer testes automatizados.
-- Pipeline de CI ainda é pendência obrigatória antes de rollout formal.
+- Pipeline de CI deve permanecer alinhado com os checks locais antes de rollout formal.
 - Base atual disponível:
 - `python3 -m unittest discover -s tests`
 - `bash scripts/smoke-check.sh`
+- `.github/workflows/ci.yml`
 
 3. Segurança e integridade
 - Nenhum segredo versionado no repositório.

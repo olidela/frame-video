@@ -57,10 +57,12 @@ python3 -m unittest discover -s tests
 bash scripts/smoke-check.sh
 ```
 
+- O projeto já possui workflow de CI em `.github/workflows/ci.yml`, executando os checks em `push`, `pull_request` e disparo manual.
+
 ## Gaps atuais de premissas
 
 - A suíte automatizada ainda é inicial, cobrindo backend e smoke checks básicos do frontend.
-- Antes de qualquer rollout formal, ainda falta definir testes automatizados mais amplos e CI.
+- Antes de qualquer rollout formal, ainda falta ampliar a cobertura dos testes além da base atual.
 - O remoto `origin` já está configurado em SSH; o próximo passo de Git passa a ser o push inicial e a estratégia de publicação.
 
 ## Como funciona

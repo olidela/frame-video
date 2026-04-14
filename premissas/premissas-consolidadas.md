@@ -71,12 +71,13 @@ Consolidar, em um único documento, as premissas globais reaproveitadas e as pre
 | L10 | Atualização contínua de contexto definida como premissa operacional | `README.md`, `premissas/premise-check-config.md`, `premissas/premissas.md` | Ativa |
 | L11 | Remoto `origin` configurado em SSH | `.git/config`, `scripts/premise-check.sh` | Ativa |
 | L12 | Revisão recorrente de `.gitignore` e bloqueio de arquivos ignorados rastreados | `.gitignore`, `scripts/premise-check.sh`, `README.md` | Ativa |
-| L13 | CI e aprofundamento da suíte ainda não existem | `README.md`, `premissas/rollout-premises.md` | Pendente |
+| L13 | Workflow de CI configurado no GitHub Actions | `.github/workflows/ci.yml` | Ativa |
+| L14 | Aprofundamento da suíte de testes ainda é pendente | `README.md`, `premissas/rollout-premises.md` | Pendente |
 
 ## Regras bloqueantes atuais (com base no estado documentado)
 
-1. Falta adicionar CI e ampliar a cobertura dos testes antes de rollout.
-2. Falta realizar o push inicial e definir a estratégia de publicação.
+1. Falta ampliar a cobertura dos testes antes de rollout.
+2. Falta consolidar a estratégia de publicação além do fluxo inicial.
 
 ## Fontes de verdade utilizadas
 

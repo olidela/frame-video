@@ -6,7 +6,6 @@ Data: 2026-04-14
 
 - Status geral: **PARCIALMENTE CONFORME**
 - Bloqueios atuais:
-- Ainda não existe CI.
 - A suíte automatizada ainda é inicial e precisa evoluir com o projeto.
 
 ## Evidências por regra-chave
@@ -46,3 +45,7 @@ Data: 2026-04-14
 9. Testes e rollout
 - Evidência: `tests/test_server.py` e `scripts/smoke-check.sh`.
 - Status: Parcial. Já existe base automatizada, mas ainda falta CI e aprofundamento dos cenários.
+
+10. CI configurada
+- Evidência: `.github/workflows/ci.yml`.
+- Status: Conforme.

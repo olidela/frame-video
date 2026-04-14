@@ -29,7 +29,8 @@
 - A revisão do `.gitignore` é recorrente e deve acontecer antes de commit ou push.
 - Nenhum arquivo coberto pelo `.gitignore` deve permanecer rastreado no Git.
 - O check inicial de premissas ocorre via `bash scripts/premise-check.sh`.
-- Enquanto não houver CI e suíte automatizada, não existe promoção formal para `main`.
+- O projeto deve manter workflow de CI alinhado com os checks locais.
+- Enquanto a suíte automatizada seguir inicial, não existe promoção formal para `main`.
 - Ao final de cada bloco relevante de trabalho, o contexto deve ser atualizado na documentação do projeto para evitar perda de continuidade.
 
 ## Formulário de fechamento pendente
