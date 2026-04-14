@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frame Video</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=3" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Local frame extractor</p>
+        <h1>Extraia frames de vídeo em PNG com qualidade máxima.</h1>
+        <p class="lede">
+          O arquivo pode ser processado no navegador ou pelo
+          <code>ffmpeg</code> local do seu computador para formatos mais
+          difíceis. No fim, você baixa todos os frames compactados em um único
+          arquivo <code>.zip</code>.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Configuração</h2>
+            <p>Escolha o vídeo e extraia por FPS ou por intervalo em segundos.</p>
+          </div>
+          <span class="badge">100% local</span>
+        </div>
+
+        <form id="extract-form" class="controls">
+          <div class="file-drop">
+            <input
+              id="video-input"
+              name="video"
+              type="file"
+              accept=".mp4,.mov,.m4v,.webm,.ogv,.ogg,.avi,.mkv,.mts,.m2ts,video/*"
+              required
+            />
+            <button id="select-video-button" class="file-picker-button" type="button">
+              Selecionar vídeo
+            </button>
+            <span class="file-drop-title">Escolha um arquivo de vídeo</span>
+            <span class="file-drop-copy">
+              MP4, MOV, WebM e outros formatos. Se o arquivo não aparecer, troque o filtro do seletor para todos os arquivos.
+            </span>
+            <span id="file-name" class="file-name">Nenhum arquivo selecionado</span>
+          </div>
+
+          <fieldset class="mode-switch">
+            <legend>Modo de extração</legend>
+            <label class="mode-option">
+              <input type="radio" name="capture-mode" value="fps" checked />
+              <span>Por FPS</span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="capture-mode" value="interval" />
+              <span>Por intervalo</span>
+            </label>
+          </fieldset>
+
+          <label class="field mode-field" data-mode-field="fps">
+            <span>Taxa de extração</span>
+            <div class="input-wrap">
+              <input
+                id="fps-input"
+                name="fps"
+                type="number"
+                min="0.1"
+                step="0.1"
+                value="1"
+                required
+              />
+              <span>FPS</span>
+            </div>
+          </label>
+
+          <label class="field mode-field is-hidden" data-mode-field="interval">
+            <span>Intervalo entre frames</span>
+            <div class="input-wrap">
+              <input
+                id="interval-input"
+                name="interval"
+                type="number"
+                min="0.1"
+                step="0.1"
+                value="1"
+              />
+              <span>segundos</span>
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Prefixo do arquivo</span>
+            <input id="prefix-input" name="prefix" type="text" value="frame" maxlength="40" />
+          </label>
+
+          <label class="field">
+            <span>Tempo inicial</span>
+            <div class="input-wrap">
+              <input
+                id="start-time-input"
+                name="start-time"
+                type="number"
+                min="0"
+                step="0.1"
+                value="0"
+              />
+              <span>s</span>
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Tempo final</span>
+            <div class="input-wrap">
+              <input
+                id="end-time-input"
+                name="end-time"
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Fim do vídeo"
+              />
+              <span>s</span>
+            </div>
+          </label>
+
+          <button id="start-button" class="primary-button" type="submit">
+            Extrair frames
+          </button>
+        </form>
+      </section>
+
+      <section class="panel status-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Status</h2>
+            <p>Acompanhe o progresso da extração.</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article>
+            <span class="stat-label">Duração</span>
+            <strong id="duration-stat">-</strong>
+          </article>
+          <article>
+            <span class="stat-label">Resolução</span>
+            <strong id="resolution-stat">-</strong>
+          </article>
+          <article>
+            <span class="stat-label">Frames previstos</span>
+            <strong id="frames-stat">-</strong>
+          </article>
+          <article>
+            <span class="stat-label">Download</span>
+            <strong id="zip-stat">Aguardando</strong>
+          </article>
+        </div>
+
+        <div class="progress-wrap" aria-live="polite">
+          <div class="progress-meta">
+            <span id="progress-label">Selecione um vídeo para começar.</span>
+            <span id="progress-count">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+        </div>
+
+        <a id="download-link" class="download-link disabled" href="#" download>
+          Baixar ZIP
+        </a>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="panel-head">
+          <div>
+            <h2>Prévia</h2>
+            <p>Os três primeiros frames extraídos aparecem aqui.</p>
+          </div>
+        </div>
+        <div id="preview-grid" class="preview-grid">
+          <p class="preview-empty">A prévia será exibida depois da extração.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js?v=5" type="module"></script>
+  </body>
+</html>
